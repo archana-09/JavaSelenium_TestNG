@@ -47,7 +47,6 @@ public class basecls extends bajajDashboard {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         //    options.addArguments("disable-notifications");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//p[contains(text(),'Mutual Fund')])[2]")));
-
     }
 
     @Test
@@ -380,6 +379,9 @@ public class basecls extends bajajDashboard {
     public void PipedGas() {
         driver.findElement(bajajDashboard.PipedGas).isDisplayed();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,500)");
+        driver.findElement(bajajDashboard.SlideNextBtn).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(bajajDashboard.PipedGas));
         driver.findElement(bajajDashboard.PipedGas).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(bajajDashboard.SignInModal));
@@ -390,6 +392,9 @@ public class basecls extends bajajDashboard {
     public void BroadbandRecharge() {
         driver.findElement(bajajDashboard.BroadbandRecharge).isDisplayed();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,500)");
+        driver.findElement(bajajDashboard.SlideNextBtn).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(bajajDashboard.BroadbandRecharge));
         driver.findElement(bajajDashboard.BroadbandRecharge).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(bajajDashboard.SignInModal));
@@ -410,6 +415,8 @@ public class basecls extends bajajDashboard {
     public void AcsOnEMI() {
         driver.findElement(bajajDashboard.AcsOnEMI).isDisplayed();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOfElementLocated(bajajDashboard.AcsOnEMI));
         driver.findElement(bajajDashboard.AcsOnEMI).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='plp-Breadcrumb']")));
@@ -421,6 +428,8 @@ public class basecls extends bajajDashboard {
     public void smartPhones() {
         driver.findElement(bajajDashboard.smartPhonesOnEMI).isDisplayed();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOfElementLocated(bajajDashboard.smartPhonesOnEMI));
         driver.findElement(bajajDashboard.smartPhonesOnEMI).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class=\"breadcrumsGTM\"]/span")));
@@ -432,8 +441,12 @@ public class basecls extends bajajDashboard {
     public void LEDs() {
         driver.findElement(bajajDashboard.LEDTvs).isDisplayed();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOfElementLocated(bajajDashboard.LEDTvs));
         driver.findElement(bajajDashboard.LEDTvs).click();
+        Alert alert = (Alert) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class=\"wzrk-alert wiz-show-animate\"]")));
+       alert.accept();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='plp-Breadcrumb']")));
         String pgeTitle = driver.getTitle();
         System.out.println(pgeTitle);
@@ -443,6 +456,8 @@ public class basecls extends bajajDashboard {
     public void Refrigerators() {
         driver.findElement(bajajDashboard.Refrigerators).isDisplayed();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOfElementLocated(bajajDashboard.Refrigerators));
         driver.findElement(bajajDashboard.Refrigerators).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='plp-Breadcrumb']")));
@@ -454,6 +469,8 @@ public class basecls extends bajajDashboard {
     public void coolers() {
         driver.findElement(bajajDashboard.coolers).isDisplayed();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOfElementLocated(bajajDashboard.coolers));
         driver.findElement(bajajDashboard.coolers).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='plp-Breadcrumb']")));
@@ -465,6 +482,8 @@ public class basecls extends bajajDashboard {
     public void WashingMachine() {
         driver.findElement(bajajDashboard.WashingMAchines).isDisplayed();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOfElementLocated(bajajDashboard.WashingMAchines));
         driver.findElement(bajajDashboard.WashingMAchines).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='plp-Breadcrumb']")));
@@ -587,7 +606,7 @@ public class basecls extends bajajDashboard {
 //
     @Test
     public void signInIsPresent() throws InterruptedException {
-        driver.wait(5);
+        driver.wait(10);
         driver.findElement(bajajDashboard.signInBtn).isDisplayed();
     }
 

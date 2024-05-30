@@ -65,5 +65,6 @@ public class bajajDashboard {
     public static By coolers= By.xpath("//p[normalize-space()='Air Coolers']");
     public static By WashingMAchines= By.xpath("//p[normalize-space()='Washing Machines']");
     public static By GoldLoan= By.xpath("//p[normalize-space()='Gold Loan']");
+    public static By SlideNextBtn = By.cssSelector(".random228160-next.swiper-button-next");
 
          }
