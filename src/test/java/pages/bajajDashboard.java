@@ -65,6 +65,14 @@ public class bajajDashboard {
     public static By coolers= By.xpath("//p[normalize-space()='Air Coolers']");
     public static By WashingMAchines= By.xpath("//p[normalize-space()='Washing Machines']");
     public static By GoldLoan= By.xpath("//p[normalize-space()='Gold Loan']");
-    public static By SlideNextBtn = By.cssSelector(".random228160-next.swiper-button-next");
+    public static By SlideNextBtn = By.xpath("//span[@aria-label=\"Next slide\"]");
+    public static By breadcrum = By.xpath("//a[@class=\"breadcrumsGTM\"]/span");
+    public static By breadcrum2 = By.xpath("//ul[@class='plp-Breadcrumb']");
+    public static By closeIcon = By.xpath("//button[contains(@class,'bf-icon-close modal')]");
+    public static By policiesLater = By.id("wzrk-cancel");
+    public static By cancelcon = By.xpath("//div[@class=\"wrapper-div-card\"]/img");
+    public static By textForRBLCard = By.xpath("//h1[ text() = \"Bajaj Finserv RBL Bank Binge SuperCard - First-Year-Free\"]");
+    public static By textForDSBCard = By.xpath("//h1[ text() = \"Bajaj Finserv DBS Bank 5X Plus Rewards Credit Card - First-Year-Free\"]");
+
 
          }
