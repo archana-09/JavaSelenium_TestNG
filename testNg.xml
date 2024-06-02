@@ -4,6 +4,7 @@
     <test name="testscript" >
         <classes>
             <class name="base.basecls" />
+            <class name="bajaj_Tests"></class>
         </classes>
     </test>
 
