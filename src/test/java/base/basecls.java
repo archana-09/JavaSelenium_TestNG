@@ -9,31 +9,48 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.lang.*;
+
 import pages.bajajDashboard;
+
 import java.time.Duration;
+import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 public class basecls extends bajajDashboard {
     WebDriver driver;
     WebDriverWait wait;
-    @BeforeMethod
-    public void enterURL() throws InterruptedException {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--enable-geolocation");
-        options.addArguments("--headless=new");
-        if(driver == null){
-            driver = new ChromeDriver(options);
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            driver.manage().window().maximize();
-            driver.navigate().to("https://www.bajajfinserv.in/");
-            wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
-        }
-        else{
-            driver.navigate().to("https://www.bajajfinserv.in/");
-            wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
+    @BeforeMethod
+    public void enterURL() throws InterruptedException, IOException {
+        Logger log = Logger.getLogger("basecls");
+        log.info("test");
+        Properties prop = new Properties();
+        FileInputStream ip = new FileInputStream("C:/Users/archanas/Documents/Test_selenium_POC/src/test/java/config/config.properties");
+        prop.load(ip);
+        String URL = prop.getProperty("Url");
+        String browser = prop.getProperty("Browser");
+        System.out.println(browser);
+        if (browser.contains("chrome")) {
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--enable-geolocation");
+            options.addArguments("--headless=new");
+            if (driver == null) {
+                driver = new ChromeDriver(options);
+                driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                driver.manage().window().maximize();
+                driver.navigate().to(URL);
+                wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+            } else {
+                driver.navigate().to(URL);
+                wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+
+            }
         }
     }
 
@@ -90,21 +107,20 @@ public class basecls extends bajajDashboard {
 //
 //    }
 
-    protected WebDriver getDriver(){
+    protected WebDriver getDriver() {
         return driver;
     }
 
-    protected WebDriverWait getWait(){
+    protected WebDriverWait getWait() {
         return wait;
     }
 
-    protected boolean isElementPresent(By ele){
+    protected boolean isElementPresent(By ele) {
         boolean flag = false;
-        try{
+        try {
             driver.findElement(ele);
             flag = true;
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             flag = false;
         }
         return flag;

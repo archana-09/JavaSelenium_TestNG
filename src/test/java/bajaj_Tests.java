@@ -16,12 +16,8 @@ import java.time.Duration;
 import java.util.Set;
 
 public class bajaj_Tests extends basecls {
-    //     WebDriverWait wait;
-//       @BeforeMethod
+
     void setUp() {
-//       System.out.println("test");
-//        driver = new ChromeDriver();
-//        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
         WebElement emiCardBtn = getDriver().findElement(By.className("bar-icn-text"));
         emiCardBtn.click();
         WebElement getNowBtn = getDriver().findElement(By.xpath("//button[text()='GET IT NOW']"));
